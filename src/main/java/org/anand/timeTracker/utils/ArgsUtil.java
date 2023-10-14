@@ -15,31 +15,32 @@ public class ArgsUtil {
                 case "report" -> args[1].equals("task") ? Command.REPORT_TASK : args[1].equals("category") ? Command.REPORT_CATEGORY : null;
                 case "restart" -> Command.RESTART;
                 case "exit" -> Command.EXIT;
-                default -> throw new RuntimeException(("Invalid Argument"));
+                default -> throw new RuntimeException("Invalid Argument");
             };
             arguments.setCommand(command);
             if(command.equals(Command.START_TASK) || command.equals(Command.STOP_TASK)){
                 arguments.setTaskName(args[1]);
                 arguments.setCategoryName(args.length > 2 ? args[2] : TaskCategory.NONE);
             }
-            return arguments;
-
-        } else{
-            throw new RuntimeException(("Error! Insufficient Arguments"));
         }
+        return arguments;
     }
 
     private static boolean validateArgs(String[] args){
-        if(args.length < 1){
+        String comm = args[0];
+        if(comm.equals("start") || comm.equals("stop") || comm.equals("report") || comm.equals("restart")){
+            if(args.length < 2){
+                if(args[0].equals("restart") || args[0].equals("exit")){
+                    return true;
+                } else{
+                    System.out.println("Insufficient arguments");
+                    return false;
+                }
+            }
+            return true;
+        } else{
+            System.out.println("Invalid command");
             return false;
         }
-        if(args.length < 2){
-            if(args[0].equals("restart") || args[0].equals("exit")){
-                return true;
-            } else{
-                return false;
-            }
-        }
-        return true;
     }
 }

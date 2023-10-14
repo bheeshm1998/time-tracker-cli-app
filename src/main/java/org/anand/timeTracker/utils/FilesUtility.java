@@ -29,7 +29,6 @@ public class FilesUtility {
         if(!Files.exists(Path.of(path))){
             Files.createFile(Path.of("time-tracker.csv"));
         }
-        System.out.println("Writing tasks to a file");
         Files.write(Path.of(path), listOfTasks.stream().map(task -> task.toString()).collect(Collectors.toList()));
     }
 }

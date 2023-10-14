@@ -48,8 +48,10 @@ public class TaskTracker {
             }
             tasksReport.put(task.getName(), new Report(task.getTaskStatus(), taskDuration));
         });
+        System.out.println("CATEGORY\t\t\t\t\t\tSTATUS\t\t\t\t\t\t\tTIME TAKEN");
         tasksReport.forEach((key, value) -> {
-            System.out.println(key + " " + value);
+            String formattedRow = String.format("%-10s\t\t\t\t\t\t%-10s", key, value);
+            System.out.println(formattedRow);
         });
     }
 
@@ -71,8 +73,11 @@ public class TaskTracker {
             duration = d1.plusSeconds(d2.getSeconds());
             categoryReport.put(task.getCategory().toString(), duration);
         });
+        System.out.println("CATEGORY\t\t\t\t\t\tTIME TAKEN");
+
         categoryReport.forEach((key, value) -> {
-            System.out.println(key + " " + value);
+            String formattedRow = String.format("%-32s\t\t\t\t\t\t%-32s", key, value);
+            System.out.println(formattedRow);
         });
     }
 

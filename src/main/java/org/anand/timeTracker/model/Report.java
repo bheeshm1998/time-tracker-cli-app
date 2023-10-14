@@ -1,5 +1,7 @@
 package org.anand.timeTracker.model;
 
+import org.anand.timeTracker.utils.TimeUtils;
+
 import java.time.Duration;
 
 public class Report {
@@ -31,6 +33,7 @@ public class Report {
 
     @Override
     public String toString() {
-        return  status + "  ------  " + duration ;
+        String formattedRow = String.format("%-10s\t\t\t\t\t\t%-10s", status, TimeUtils.formatDuration(duration));
+        return  formattedRow ;
     }
 }

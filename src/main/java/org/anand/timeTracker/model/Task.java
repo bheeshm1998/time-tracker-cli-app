@@ -1,5 +1,7 @@
 package org.anand.timeTracker.model;
 
+import org.anand.timeTracker.utils.TimeUtils;
+
 import java.time.Duration;
 import java.time.LocalDateTime;
 
