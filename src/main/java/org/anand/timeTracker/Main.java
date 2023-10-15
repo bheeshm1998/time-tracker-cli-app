@@ -49,7 +49,7 @@ public class Main {
 
             case STOP_TASK -> {
                 String taskName = arguments.getTaskName();
-                TaskTracker.completeTask(taskName);
+                TaskTracker.stopTask(taskName);
             }
 
             case REPORT_TASK -> {
@@ -65,9 +65,6 @@ public class Main {
                 FilesUtility.writeTasksToFile(new ArrayList<>());
             }
 
-            case EXIT -> {
-
-            }
             default -> {
                 return false;
             }

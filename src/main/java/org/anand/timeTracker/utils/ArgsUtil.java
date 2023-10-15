@@ -12,13 +12,13 @@ public class ArgsUtil {
             Command command = switch (args[0]){
                 case "start" -> Command.START_TASK;
                 case "stop" -> Command.STOP_TASK;
-                case "report" -> args[1].equals("task") ? Command.REPORT_TASK : args[1].equals("category") ? Command.REPORT_CATEGORY : null;
+                case "report" -> args[1].equals("tasks") ? Command.REPORT_TASK : args[1].equals("categories") ? Command.REPORT_CATEGORY : null;
                 case "restart" -> Command.RESTART;
                 case "exit" -> Command.EXIT;
                 default -> throw new RuntimeException("Invalid Argument");
             };
             arguments.setCommand(command);
-            if(command.equals(Command.START_TASK) || command.equals(Command.STOP_TASK)){
+            if(command!= null && (command.equals(Command.START_TASK) || command.equals(Command.STOP_TASK))){
                 arguments.setTaskName(args[1]);
                 arguments.setCategoryName(args.length > 2 ? args[2] : TaskCategory.NONE);
             }

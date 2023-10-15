@@ -1,5 +1,5 @@
 package org.anand.timeTracker.model;
 
 public enum TaskStatus {
-    STARTED, COMPLETED
+    IN_PROGRESS, COMPLETED
 }

@@ -20,7 +20,7 @@ public class Task {
         this.name = name;
         this.category = category;
         this.startTime = LocalDateTime.now();
-        this.taskStatus = TaskStatus.STARTED;
+        this.taskStatus = TaskStatus.IN_PROGRESS;
         this.timeSpent = Duration.ZERO;
     }
 

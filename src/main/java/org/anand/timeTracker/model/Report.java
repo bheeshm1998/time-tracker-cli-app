@@ -33,7 +33,11 @@ public class Report {
 
     @Override
     public String toString() {
-        String formattedRow = String.format("%-10s\t\t\t\t\t\t%-10s", status, TimeUtils.formatDuration(duration));
+        String formattedRow = String.format("%-10s\t\t\t%-10s", status, TimeUtils.formatDuration(duration));
         return  formattedRow ;
+    }
+
+    public String getCategoryReport(){
+        return TimeUtils.formatDuration(duration);
     }
 }
