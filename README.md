@@ -1,6 +1,14 @@
 # Time Tracker Application
 
 ## Usage
+
+### Running the application
+Package the application using the command
+`mvn package`
+Run the generated archive file inside the target folder using the command
+`java -jar <archive-file-name.jar>`
+
+Start using the application using the commands stated below
 ### Start logging time
 `start <task-name>` <br>
 `start <task-name> <category-name>`
@@ -20,7 +28,7 @@ Show the categories and the time spent on each of them
 
 ### Restart
 `restart`
-Deletes all the tasks and starts again
+Removes all the tasks and starts again
 
 ### Exit the time tracker app
 `exit`
